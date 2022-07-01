@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block title %}Services{% endblock title %}
+{% block body %}
+<div class="container px-4 py-5" id="custom-cards">
+    <h2 class="pb-2 border-bottom">Services at Delhi Bank</h2>
+    <h3 class=" pb-2 mb-0 px-3 my-3"><font color="DarkOrchid">Want to know how outside temperature affects our sales?</font></h3>
+<h3 class="border-bottom pb-2 mb-0 px-3 my-1"><font color="CadetBlue">Take our Revenue prediction Test!</font></h3>
+<form method="POST" action="/revenueprediction">
+    {% csrf_token %}
+    <div class="form-group px-3 my-5 ">
+        <label for="temperature" class="form-label">Enter outside Temperature</label>
+        <input type="number" class="form-control" id="temperature" name="temperature" placeholder="Enter Temperature in Celsius(°C)">
+    </div>
+    <div class="text-center">
+        <input type="submit" value="Submit Value" class="btn btn-warning btn-lg px-10">   
+    </div>
+ 
+</form>
+{% if scoreval %}
+<h3><font class="px-3 my-10"color="Maroon">Revenue is {{scoreval}}(in Millions)</font></h3>
+{% endif %}
+
+    <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://source.unsplash.com/500x500/?store');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Store near you</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="/static/store.jpg" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                <small>Earth</small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                <small>3d</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://source.unsplash.com/500x500/?partner');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Become a partner,open our franchise!</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                <small>London</small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                <small>4d</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('https://source.unsplash.com/500x500/?influencer');">
+          <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+            <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Become our ambassador</h2>
+            <ul class="d-flex list-unstyled mt-auto">
+              <li class="me-auto">
+                <img src="https://github.com/twbs.png" alt="Bootstrap" width="32" height="32" class="rounded-circle border border-white">
+              </li>
+              <li class="d-flex align-items-center me-3">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"></use></svg>
+                <small>California</small>
+              </li>
+              <li class="d-flex align-items-center">
+                <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"></use></svg>
+                <small>5d</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock body %}
